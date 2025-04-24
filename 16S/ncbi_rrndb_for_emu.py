@@ -84,12 +84,11 @@ tax_dict = create_tax_dict(rrndb_meta_path)
 new_tax_dict = {
     acc: taxdb.oldtaxid2newtaxid.get(taxid, taxid) for acc, taxid in tax_dict.items()
 }
-# print("GCF_029225785.1: " + str(new_tax_dict["GCF_029225785.1"]))  # test, should be 2246
 
 # Parse fasta file
 for record in SeqIO.parse(rrndb_seq_path, "fasta"):
     rid = record.description
-    gcf_acc = rid.split("|")[1]  # GCF_000762265.1
+    gcf_acc = rid.split("|")[1]  # example: GCF_000762265.1
 
     # update seq_id info for new fasta file
     seq_id = update_seq_id_info("rrn", new_tax_dict[gcf_acc], rrndb_seq_counter)
@@ -108,10 +107,10 @@ tax_id_list = ncbi_taxid_list + rrndb_taxid_list
 
 # Write fasta file
 SeqIO.write(output_records, os.path.join(output_dir_path, "emu_input.fa"), "fasta")
-# example: >28903:ncbi:1 ['Mycoplasmopsis bovis strain Donetta 16S ribosomal RNA, complete sequence']
+# example: >3381468:ncbi:1 ['Eurychoronema bolivianum strain LEGE 231228 16S ribosomal RNA, partial sequence']
 
 # Write seq2tax map
 with open(os.path.join(output_dir_path, "seq2tax.map"), "w") as f:
     writer = csv.writer(f, delimiter="\t")
     writer.writerows(zip(seq_id_list, tax_id_list))
-# example: 28903:ncbi:1	28903
+# example: 3381468:ncbi:1	3381468
