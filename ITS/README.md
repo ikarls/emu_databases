@@ -1,6 +1,6 @@
 # ITS databases for emu
 
-[unite-fungi-19.02.2025_dev_SH](unite-fungi-19.02.2025_dev_SH.tar.gz): this database is built from UNITE 19.02.2025 (sh_general_release_dynamic_all_19.02.2025_dev.fasta) and includes the species hypotheses accessions from UNITE in the species names.
+[unite-fungi-19.02.2025_dev_SH](unite-fungi-19.02.2025_dev_SH.tar.gz): this database is built from UNITE 19.02.2025 (doi:10.15156/BIO/3301229, sh_general_release_dynamic_19.02.2025_dev.fasta) and includes the species hypotheses accessions from UNITE in the species names.
 
 ## Python script to generate the database above
 
@@ -14,7 +14,7 @@
 1. Download input fasta file from https://unite.ut.ee/repository.php
     
     To run the script the following files are required:
-    - Fasta file: `sh_general_release_dynamic_all_xx.xx.xxxx_dev.fasta`
+    - Fasta file (for example): `sh_general_release_dynamic_xx.xx.xxxx_dev.fasta`
 
 2. Run python script
 
